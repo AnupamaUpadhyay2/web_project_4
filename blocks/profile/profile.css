@@ -6,10 +6,9 @@
 @import url(./__edit/profile__edit.css);
 @import url(./__add-box/profile__add-box.css);
 @import url(./__add-button/profile__add-button.css);
-
 .profile {
-margin: 40px 0 51px 0;
-display: flex;
+  margin: 40px 0 51px 0;
+  display: flex;
 }
 
 @media screen and (max-width: 880px) {
