@@ -8,6 +8,11 @@
     margin: 35px 0 35px 165px;
     background-color: black;
     cursor: pointer;
+    transition: 1s;
+}
+
+.profile__add-box:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 880px) {

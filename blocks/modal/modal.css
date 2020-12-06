@@ -1,4 +1,5 @@
 @import url(./__container/modal__container.css);
+@import url(./__form-container/modal__form-container.css);
 @import url(./__button/modal__button.css);
 
 .modal {
