@@ -1,0 +1,14 @@
+@import url(__item/photo-grid__item.css);
+@import url(__img/photo-grid__img.css);
+@import url(__text/photo-grid__text.css);
+@import url(__place/photo-grid__place.css);
+@import url(__like-button/photo-grid__like-button.css);
+
+.photo-grid {
+  margin: 0;
+  display: grid;
+  box-sizing: border-box;
+  grid-row-gap: 20px;
+  grid-column-gap: 17px;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+}
