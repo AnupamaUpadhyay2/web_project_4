@@ -5,3 +5,9 @@
   text-align: start;
   color: #545454;
 }
+
+@media screen and (max-width: 425px) {
+.footer {
+  margin-top: 48px;
+}
+}

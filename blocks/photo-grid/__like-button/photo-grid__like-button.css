@@ -3,7 +3,19 @@
   width: 20.76px;
   background-color: white;
   object-fit: cover;
+  background-repeat: no-repeat;
   padding: 0;
   border: none;
+  outline: none;
   margin-top: 6px;
+  background-image: url(../../../images/likeButton.svg);
+  cursor: pointer;
+}
+
+.photo-grid__like-button:hover {
+  background-image: url(../../../images/likeButtonHover.svg);
+}
+
+.photo-grid__like-button:active {
+  background-image: url(../../../images/likeButtonActive.png);
 }

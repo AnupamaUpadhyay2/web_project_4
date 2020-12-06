@@ -9,11 +9,6 @@ let aboutMeInput = document.querySelector(".form__input_type_about-me");
 let profileName = document.querySelector(".profile__name");
 let profileAbout = document.querySelector(".profile__about");
 
-let likeButton = document.querySelector(".photo-grid__like-button")
-
-
-
-
 form.addEventListener("submit", (event) => {
   event.preventDefault()
 

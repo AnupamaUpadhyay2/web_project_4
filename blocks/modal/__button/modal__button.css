@@ -1,21 +1,26 @@
 .modal__button {
   align-self: flex-end;
-  background-color: black;
+  background-color: rgba(0,0,0,0.5);
   border: none;
   height: 40px;
   width: 40px;
   cursor: pointer;
   transition: 1s;
+  background-image: url(../../../images/closeIcon.png);
+  object-fit: contain;
+  background-repeat: no-repeat;
+  padding: 0;
+  background-position: center;
 }
 
 .modal__button:hover {
   opacity: 0.6;
 }
 
-
 @media screen and (max-width: 425px) {
   .modal__button {
-height: 26px;
-width: 26px;
+    height: 26px;
+    width: 26px;
+    margin-bottom: 13px;
   }
 }
