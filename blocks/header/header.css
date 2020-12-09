@@ -1,5 +1,11 @@
-@import url('./__line/header__line.css');
 .header {
   display: flex;
   flex-direction: column;
+}
+
+.header::after {
+  content: "";
+  display: block;
+  margin-top: 41px;
+  border-bottom: 1px solid #888888;
 }

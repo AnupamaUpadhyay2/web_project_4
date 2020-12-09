@@ -11,6 +11,10 @@
   align-items: center;
   cursor: pointer;
   transition: 1s;
+  background-image: url(../../../images/editIcon.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  object-fit: cover;
 }
 
 .profile__edit:hover {
