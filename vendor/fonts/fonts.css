@@ -12,8 +12,8 @@
     font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url("./Inter-700.woff") format("woff"), 
-    url("./Inter-700.woff2") format("woff2");
+    src: url("./Inter-500.woff") format("woff"), 
+    url("./Inter-500.woff2") format("woff2");
 }
 
 @font-face {

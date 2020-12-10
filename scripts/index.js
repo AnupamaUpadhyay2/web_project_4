@@ -9,21 +9,29 @@ let aboutMeInput = document.querySelector(".form__input_type_about-me");
 let profileName = document.querySelector(".profile__name");
 let profileAbout = document.querySelector(".profile__about");
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault()
+function openModal() {
+  
+  nameInput.value = profileName.textContent;
+  aboutMeInput.value = profileAbout.textContent;
+
+  modal.classList.toggle("modal_open");
+}
+
+function closeModal() {
+  modal.classList.toggle("modal_open");
+}
+
+function valueUpdate(event) {
+  event.preventDefault();
 
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutMeInput.value;
 
-  toggleModal()
-
-})
-
-function toggleModal() {
-  modal.classList.toggle("modal_open");
+  closeModal();
 }
 
-editButton.addEventListener("click", toggleModal)
+editButton.addEventListener("click", openModal);
 
-closeButton.addEventListener("click", toggleModal)
+closeButton.addEventListener("click", closeModal);
 
+form.addEventListener("submit", valueUpdate);

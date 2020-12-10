@@ -1,5 +1,25 @@
 @import url(./__title/form__title.css);
 @import url(./__input/form__input.css);
 @import url(./__save/form__save.css);
-/* @import url(./__input/_type/form__input_type_name.css);
-@import url(./__input/_type/form__input_type_about-me.css); */
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 34px 36px 36px 36px;
+  color: #000000;
+  box-sizing: border-box;
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 425px) {
+  .form {
+    width: 282px;
+    padding: 25px 22px;
+    margin-right: 0;
+  }
+}
