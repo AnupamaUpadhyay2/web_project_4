@@ -26,8 +26,11 @@
           <div class="profile__info">
             <div class="profile__name-box">
               <h1 class="profile__name">Jacques Cousteau</h1>
-              <button class="profile__edit" aria-label="Edit" type="button">
-              </button>
+              <button
+                class="profile__edit"
+                aria-label="Edit"
+                type="button"
+              ></button>
             </div>
             <p class="profile__about">Explorer</p>
           </div>
@@ -40,7 +43,6 @@
           </button>
         </section>
 
-       
         <section class="photo-grid">
           <div class="photo-grid__item">
             <img
@@ -116,27 +118,31 @@
 
       <section class="modal">
         <div class="modal__container">
-          <button class="modal__close-button"  aria-label="Close" type="button"></button>
-            <form class="form" name="form">
-              <h3 class="form__title">Edit Profile</h3>
-              <input
-                type="text"
-                name="name"
-                class="form__input form__input_type_name"
-                placeholder="Name"
-                value="Jacques Cousteau"
-                required
-              />
-              <input
-                type="text"
-                name="about-me"
-                class="form__input form__input_type_about-me"
-                placeholder="About Me"
-                value="Explorer"
-                required
-              />
-              <button class="form__save" type="submit">Save</button>
-            </form>
+          <button
+            class="modal__close-button"
+            aria-label="Close"
+            type="button"
+          ></button>
+          <form class="form" name="form">
+            <h3 class="form__title">Edit Profile</h3>
+            <input
+              type="text"
+              name="name"
+              class="form__input form__input_type_name"
+              placeholder="Name"
+              value="Jacques Cousteau"
+              required
+            />
+            <input
+              type="text"
+              name="about-me"
+              class="form__input form__input_type_about-me"
+              placeholder="About Me"
+              value="Explorer"
+              required
+            />
+            <button class="form__save" type="submit">Save</button>
+          </form>
         </div>
       </section>
     </div>

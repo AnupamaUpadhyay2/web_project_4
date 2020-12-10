@@ -10,7 +10,7 @@ let profileName = document.querySelector(".profile__name");
 let profileAbout = document.querySelector(".profile__about");
 
 function openModal() {
-  
+
   nameInput.value = profileName.textContent;
   aboutMeInput.value = profileAbout.textContent;
 
