@@ -1,24 +1,29 @@
 //wrappers
-const modal = document.querySelector(".modal");
-const form = document.querySelector(".form");
-
+const editProfileModal = document.querySelector(".modal_type_edit-profile")
 const addCardModal = document.querySelector(".modal_type_add-card")
+const imageModal = document.querySelector(".modal_type_image")
 
-//buttons
-const editButton = document.querySelector(".profile__edit");
-const closeButton = document.querySelector(".modal__close-button");
+const editProfileForm = editProfileModal.querySelector(".form");
+const addCardForm = addCardModal.remove.querySelector(".form");
 
+//open buttons
+const profileEditButton = document.querySelector(".profile__edit");
 const addCardButton = document.querySelector(".profile__add-button");
 
+//close buttons
+const closeEditProfileModal = editProfileModal.querySelector(".modal__close-button");
+const closeAddCardModal = addCardModal.querySelector(".modal__close-button");
+const closeImageModal = imageModal.querySelector(".modal__close-button");
 
-//edit modal inputs
+//DOM
 const nameInput = document.querySelector(".form__input_type_name");
 const aboutMeInput = document.querySelector(".form__input_type_about-me");
 
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
 
-function openModal() {
+
+function openModal(modal) {
 
   nameInput.value = profileName.textContent;
   aboutMeInput.value = profileAbout.textContent;
@@ -26,7 +31,7 @@ function openModal() {
   modal.classList.toggle("modal_open");
 }
 
-function closeModal() {
+function closeModal(modal) {
   modal.classList.toggle("modal_open");
 }
 
@@ -36,17 +41,98 @@ function valueUpdate(event) {
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutMeInput.value;
 
-  closeModal();
+  closeModal(editProfileModal);
 }
 
-editButton.addEventListener("click", openModal);
+// addCardForm.addEventListener("submit", () => {
 
-closeButton.addEventListener("click", closeModal);
+// })
 
-form.addEventListener("submit", valueUpdate);
+profileEditButton.addEventListener("click", () => {
+  openModal(editProfileModal);
+});
+
+closeEditProfileModal.addEventListener("click", () => {
+  closeModal(editProfileModal);
+});
+
+editProfileForm.addEventListener("submit", valueUpdate);
 
 addCardButton.addEventListener("click", () => {
-  addCardModal.classList.add("modal_open");
+  openModal(addCardModal);
 })
 
+closeAddCardModal.addEventListener("click", () => {
+  closeModal(addCardModal);
+})
+
+
+
+
+const initialCards = [
+  {
+    name: "Yosemite Valley",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
+  },
+  {
+    name: "Lake Louise",
+    link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
+  },
+  {
+    name: "Bald Mountains",
+    link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
+  },
+  {
+    name: "Latemar",
+    link: "https://code.s3.yandex.net/web-code/latemar.jpg"
+  },
+  {
+    name: "Vanoise National Park",
+    link: "https://code.s3.yandex.net/web-code/vanoise.jpg"
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://code.s3.yandex.net/web-code/lago.jpg"
+  }
+];
+
+const cardTemplate = document.querySelector(".card-template").content.querySelector(".photo-grid__item");
+const photoGrid = document.querySelector(".photo-grid");
+
+initialCards.forEach(data => {
+  const cardElement = cardTemplate.cloneNode(true);
+
+  const cardImage = cardElement.querySelector(".photo-grid__img");
+  const cardTitle = cardElement.querySelector(".photo-grid__place");
+  const cardLikeButton = cardElement.querySelector(".photo-grid__like-button");
+  const cardDeleteButton = cardElement.querySelector(".photo-grid__delete-button");
+
+  cardTitle.textContent = data.name;
+  cardImage.src = data.link;
+
+  cardLikeButton.addEventListener("click", () => {
+    // change like button background
+  })
+
+  cardDeleteButton.addEventListener("click", () => {
+    photoGrid.remove(cardElement);
+  })
+
+  cardImage.addEventListener("click", () => {
+
+    const popupImage = imageModal.querySelector(".modal__image");
+    const popupImageCaption = imageModal.querySelector(".modal__image-caption");
+
+    popupImage.src = data.link;
+    popupImageCaption.textContent = data.name;
+
+    openModal(imageModal);
+  })
+
+  photoGrid.prepend(cardElement);
+})
+
+closeImageModal.addEventListener("click", () => {
+  closeModal(imageModal);
+})
 

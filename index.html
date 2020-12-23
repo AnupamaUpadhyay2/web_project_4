@@ -43,74 +43,7 @@
           </button>
         </section>
 
-        <section class="photo-grid">
-          <div class="photo-grid__item">
-            <img
-              class="photo-grid__img"
-              src="images/yosemiteValley.png"
-              alt="Yosemite Valley"
-            />
-            <div class="photo-grid__text">
-              <h2 class="photo-grid__place">Yosemite Valley</h2>
-              <button class="photo-grid__like-button" type="button"></button>
-            </div>
-          </div>
-          <div class="photo-grid__item">
-            <img
-              class="photo-grid__img"
-              src="images/lakeLouise.png"
-              alt="Lake Louise"
-            />
-            <div class="photo-grid__text">
-              <h2 class="photo-grid__place">Lake Louise</h2>
-              <button class="photo-grid__like-button" type="button"></button>
-            </div>
-          </div>
-          <div class="photo-grid__item">
-            <img
-              class="photo-grid__img"
-              src="images/baldMountains.png"
-              alt="Bald Mountains"
-            />
-            <div class="photo-grid__text">
-              <h2 class="photo-grid__place">Bald Mountains</h2>
-              <button class="photo-grid__like-button" type="button"></button>
-            </div>
-          </div>
-          <div class="photo-grid__item">
-            <img
-              class="photo-grid__img"
-              src="images/latemar.png"
-              alt="Latemar"
-            />
-            <div class="photo-grid__text">
-              <h2 class="photo-grid__place">Latemar</h2>
-              <button class="photo-grid__like-button" type="button"></button>
-            </div>
-          </div>
-          <div class="photo-grid__item">
-            <img
-              class="photo-grid__img"
-              src="images/vanoiseNational.png"
-              alt="Vanoise National Park"
-            />
-            <div class="photo-grid__text">
-              <h2 class="photo-grid__place">Vanoise National Park</h2>
-              <button class="photo-grid__like-button" type="button"></button>
-            </div>
-          </div>
-          <div class="photo-grid__item">
-            <img
-              class="photo-grid__img"
-              src="images/lagoDiBraies.png"
-              alt="Lago di Braies"
-            />
-            <div class="photo-grid__text">
-              <h2 class="photo-grid__place">Lago di Braies</h2>
-              <button class="photo-grid__like-button" type="button"></button>
-            </div>
-          </div>
-        </section>
+        <section class="photo-grid"></section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">© 2020 Around The U.S.</p>
@@ -175,7 +108,34 @@
           </form>
         </div>
       </section>
+
+      <section class="modal modal_type_image">
+        <div class="modal__container">
+          <button
+            class="modal__close-button"
+            aria-label="Close"
+            type="button"
+          ></button>
+          <form class="form" name="form">
+            <figure class="modal__figure">
+              <img src="" alt="" class="modal__image" />
+              <figcaption class="modal__image-caption"></figcaption>
+            </figure>
+          </form>
+        </div>
+      </section>
     </div>
+
+    <template class="card-template">
+      <div class="photo-grid__item">
+        <button class="photo-grid__delete-button" type="button"></button>
+        <img class="photo-grid__img" src="" alt="" />
+        <div class="photo-grid__text">
+          <h2 class="photo-grid__place"></h2>
+          <button class="photo-grid__like-button" type="button"></button>
+        </div>
+      </div>
+    </template>
 
     <script src="./scripts/index.js"></script>
   </body>
