@@ -1,8 +1,13 @@
+//buttons
 let editButton = document.querySelector(".profile__edit");
 let closeButton = document.querySelector(".modal__close-button");
+
+
+//edit modal
 let form = document.querySelector(".form");
 let modal = document.querySelector(".modal");
 
+//edit modal inputs
 let nameInput = document.querySelector(".form__input_type_name");
 let aboutMeInput = document.querySelector(".form__input_type_about-me");
 
