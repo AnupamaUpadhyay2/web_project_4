@@ -116,7 +116,7 @@
         <p class="footer__copyright">© 2020 Around The U.S.</p>
       </footer>
 
-      <section class="modal">
+      <section class="modal modal_type_edit-profile">
         <div class="modal__container">
           <button
             class="modal__close-button"
@@ -124,7 +124,7 @@
             type="button"
           ></button>
           <form class="form" name="form">
-            <h3 class="form__title">Edit Profile</h3>
+            <h3 class="form__title">Edit profile</h3>
             <input
               type="text"
               name="name"
@@ -142,6 +142,36 @@
               required
             />
             <button class="form__save" type="submit">Save</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="modal modal_type_add-card">
+        <div class="modal__container">
+          <button
+            class="modal__close-button"
+            aria-label="Close"
+            type="button"
+          ></button>
+          <form class="form" name="form">
+            <h3 class="form__title">New place</h3>
+            <input
+              type="text"
+              name="pace-title"
+              class="form__input form__input_type_place-title"
+              placeholder="Title"
+              value=""
+              required
+            />
+            <input
+              type="url"
+              name="place-url"
+              class="form__input form__input_type_place-url"
+              placeholder="Image link"
+              value=""
+              required
+            />
+            <button class="form__save" type="submit">Create</button>
           </form>
         </div>
       </section>

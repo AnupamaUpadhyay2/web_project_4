@@ -1,18 +1,22 @@
+//wrappers
+const modal = document.querySelector(".modal");
+const form = document.querySelector(".form");
+
+const addCardModal = document.querySelector(".modal_type_add-card")
+
 //buttons
-let editButton = document.querySelector(".profile__edit");
-let closeButton = document.querySelector(".modal__close-button");
+const editButton = document.querySelector(".profile__edit");
+const closeButton = document.querySelector(".modal__close-button");
 
+const addCardButton = document.querySelector(".profile__add-button");
 
-//edit modal
-let form = document.querySelector(".form");
-let modal = document.querySelector(".modal");
 
 //edit modal inputs
-let nameInput = document.querySelector(".form__input_type_name");
-let aboutMeInput = document.querySelector(".form__input_type_about-me");
+const nameInput = document.querySelector(".form__input_type_name");
+const aboutMeInput = document.querySelector(".form__input_type_about-me");
 
-let profileName = document.querySelector(".profile__name");
-let profileAbout = document.querySelector(".profile__about");
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__about");
 
 function openModal() {
 
@@ -40,3 +44,9 @@ editButton.addEventListener("click", openModal);
 closeButton.addEventListener("click", closeModal);
 
 form.addEventListener("submit", valueUpdate);
+
+addCardButton.addEventListener("click", () => {
+  addCardModal.classList.add("modal_open");
+})
+
+
