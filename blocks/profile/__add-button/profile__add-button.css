@@ -7,7 +7,7 @@
   display: flex;
   background-color: black;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.5s;
   align-self: center;
   margin-left: auto;
 }

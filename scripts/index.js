@@ -4,7 +4,7 @@ const addCardModal = document.querySelector(".modal_type_add-card")
 const imageModal = document.querySelector(".modal_type_image")
 
 const editProfileForm = editProfileModal.querySelector(".form");
-const addCardForm = addCardModal.remove.querySelector(".form");
+const addCardForm = addCardModal.querySelector(".form");
 
 //open buttons
 const profileEditButton = document.querySelector(".profile__edit");
@@ -21,6 +21,9 @@ const aboutMeInput = document.querySelector(".form__input_type_about-me");
 
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
+
+const placeNameInput = document.querySelector(".form__input_type_place-title");
+const placeUrlInput = document.querySelector(".form__input_type_place-url");
 
 
 function openModal(modal) {
@@ -44,9 +47,21 @@ function valueUpdate(event) {
   closeModal(editProfileModal);
 }
 
-// addCardForm.addEventListener("submit", () => {
+function updatePhotoGrid(event) {
+  event.preventDefault();
 
-// })
+  let newCard = {
+    name: placeNameInput.value,
+    link: placeUrlInput.value
+  };
+
+  addCardToGrid(newCard);
+
+  closeModal(addCardModal);
+}
+
+
+addCardForm.addEventListener("submit", updatePhotoGrid);
 
 profileEditButton.addEventListener("click", () => {
   openModal(editProfileModal);
@@ -96,10 +111,11 @@ const initialCards = [
   }
 ];
 
+
 const cardTemplate = document.querySelector(".card-template").content.querySelector(".photo-grid__item");
 const photoGrid = document.querySelector(".photo-grid");
 
-initialCards.forEach(data => {
+function addCardToGrid(data) {
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardImage = cardElement.querySelector(".photo-grid__img");
@@ -111,11 +127,11 @@ initialCards.forEach(data => {
   cardImage.src = data.link;
 
   cardLikeButton.addEventListener("click", () => {
-    // change like button background
+    cardLikeButton.classList.toggle("photo-grid__like-button_liked");
   })
 
   cardDeleteButton.addEventListener("click", () => {
-    photoGrid.remove(cardElement);
+    cardElement.remove();
   })
 
   cardImage.addEventListener("click", () => {
@@ -130,7 +146,13 @@ initialCards.forEach(data => {
   })
 
   photoGrid.prepend(cardElement);
+}
+
+
+initialCards.forEach(card => {
+  addCardToGrid(card);
 })
+
 
 closeImageModal.addEventListener("click", () => {
   closeModal(imageModal);

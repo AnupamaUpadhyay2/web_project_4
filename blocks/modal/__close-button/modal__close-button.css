@@ -5,12 +5,12 @@
   height: 40px;
   width: 40px;
   cursor: pointer;
-  transition: 1s;
+  transition: 0.5s;
   background-image: url(../../../images/CloseIcon.svg);
-  object-fit: contain;
   background-repeat: no-repeat;
   padding: 0;
   background-position: center;
+  margin-bottom: 2px;
 }
 
 .modal__close-button:hover {
@@ -21,6 +21,5 @@
   .modal__close-button {
     height: 26px;
     width: 26px;
-    margin-bottom: 13px;
   }
 }

@@ -3,8 +3,8 @@
 @import url(__text/photo-grid__text.css);
 @import url(__place/photo-grid__place.css);
 @import url(__like-button/photo-grid__like-button.css);
+@import url(__like-button/_liked/photo-grid_like-button_liked.css);
 @import url(__delete-button/photo-grid__delete-button.css);
-
 .photo-grid {
   margin: 0;
   display: grid;

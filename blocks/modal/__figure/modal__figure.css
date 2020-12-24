@@ -1,0 +1,12 @@
+.modal__figure {
+  margin: 0;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+@media screen and (max-width: 425px) {
+  .modal__figure {
+    margin-right: 26px;
+    margin-left: 26px;
+  }
+}

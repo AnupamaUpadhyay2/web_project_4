@@ -1,0 +1,5 @@
+@media screen and (max-width: 425px) {
+  .form__input_type_place-url {
+    width: 200px;
+  }
+}

@@ -9,14 +9,10 @@
   outline: none;
   margin-top: 6px;
   background-image: url(../../../images/likeIcon.svg);
+  transition: 0.5s;
   cursor: pointer;
 }
 
 .photo-grid__like-button:hover {
   opacity: 0.5;
-}
-
-.photo-grid__like-button:active {
-  opacity: 1;
-  background-image: url(../../../images/likeIconActive.svg);
 }

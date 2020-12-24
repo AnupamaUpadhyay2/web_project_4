@@ -1,8 +1,8 @@
 @import url(./__title/form__title.css);
 @import url(./__input/form__input.css);
+@import url(./__input/_type/form__input_type_place-title.css);
+@import url(./__input/_type/form__input_type_place-url.css);
 @import url(./__save/form__save.css);
-
-
 .form {
   display: flex;
   flex-direction: column;
@@ -14,12 +14,5 @@
   color: #000000;
   box-sizing: border-box;
   margin-right: 40px;
-}
-
-@media screen and (max-width: 425px) {
-  .form {
-    width: 282px;
-    padding: 25px 22px;
-    margin-right: 0;
-  }
+  margin-left: 40px;
 }

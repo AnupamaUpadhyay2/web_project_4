@@ -9,4 +9,7 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/_open/modal_open.css);
+@import url(../blocks/modal/_type/modal_type_image.css);
 @import url(../blocks/form/form.css);
+@import url(../blocks/form/_type/form_type_add-card.css);
+@import url(../blocks/form/_type/form_type_edit-profile.css);
