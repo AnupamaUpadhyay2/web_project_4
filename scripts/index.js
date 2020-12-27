@@ -25,11 +25,14 @@ const profileAbout = document.querySelector(".profile__about");
 const placeNameInput = document.querySelector(".form__input_type_place-title");
 const placeUrlInput = document.querySelector(".form__input_type_place-url");
 
+const cardTemplate = document.querySelector(".card-template").content.querySelector(".photo-grid__item");
+const photoGrid = document.querySelector(".photo-grid");
+
+const popupImage = imageModal.querySelector(".modal__image");
+const popupImageCaption = imageModal.querySelector(".modal__image-caption");
+
 
 function openModal(modal) {
-
-  nameInput.value = profileName.textContent;
-  aboutMeInput.value = profileAbout.textContent;
 
   modal.classList.toggle("modal_open");
 }
@@ -50,7 +53,7 @@ function valueUpdate(event) {
 function updatePhotoGrid(event) {
   event.preventDefault();
 
-  let newCard = {
+  const newCard = {
     name: placeNameInput.value,
     link: placeUrlInput.value
   };
@@ -64,6 +67,10 @@ function updatePhotoGrid(event) {
 addCardForm.addEventListener("submit", updatePhotoGrid);
 
 profileEditButton.addEventListener("click", () => {
+  
+  nameInput.value = profileName.textContent;
+  aboutMeInput.value = profileAbout.textContent;
+
   openModal(editProfileModal);
 });
 
@@ -74,14 +81,13 @@ closeEditProfileModal.addEventListener("click", () => {
 editProfileForm.addEventListener("submit", valueUpdate);
 
 addCardButton.addEventListener("click", () => {
+  addCardForm.reset();
   openModal(addCardModal);
 })
 
 closeAddCardModal.addEventListener("click", () => {
   closeModal(addCardModal);
 })
-
-
 
 
 const initialCards = [
@@ -112,10 +118,7 @@ const initialCards = [
 ];
 
 
-const cardTemplate = document.querySelector(".card-template").content.querySelector(".photo-grid__item");
-const photoGrid = document.querySelector(".photo-grid");
-
-function addCardToGrid(data) {
+function createCard(data) {
   const cardElement = cardTemplate.cloneNode(true);
 
   const cardImage = cardElement.querySelector(".photo-grid__img");
@@ -125,6 +128,7 @@ function addCardToGrid(data) {
 
   cardTitle.textContent = data.name;
   cardImage.src = data.link;
+  cardImage.alt = data.name;
 
   cardLikeButton.addEventListener("click", () => {
     cardLikeButton.classList.toggle("photo-grid__like-button_liked");
@@ -136,15 +140,19 @@ function addCardToGrid(data) {
 
   cardImage.addEventListener("click", () => {
 
-    const popupImage = imageModal.querySelector(".modal__image");
-    const popupImageCaption = imageModal.querySelector(".modal__image-caption");
-
     popupImage.src = data.link;
     popupImageCaption.textContent = data.name;
 
     openModal(imageModal);
   })
 
+  return cardElement;
+}
+
+
+  function addCardToGrid(data) {
+    //why? there already is a cardElement
+  const cardElement = createCard(data);
   photoGrid.prepend(cardElement);
 }
 
