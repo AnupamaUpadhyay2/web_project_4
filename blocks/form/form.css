@@ -3,6 +3,9 @@
 @import url(./__input/_type/form__input_type_place-title.css);
 @import url(./__input/_type/form__input_type_place-url.css);
 @import url(./__save/form__save.css);
+@import url(./__save/_disabled/form__save_disabled.css);
+@import url(./__input/_type/form__input_type_error.css);
+@import url(./__error/form__error.css);
 .form {
   display: flex;
   flex-direction: column;

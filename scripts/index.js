@@ -151,7 +151,6 @@ function createCard(data) {
 
 
   function addCardToGrid(data) {
-    //why? there already is a cardElement
   const cardElement = createCard(data);
   photoGrid.prepend(cardElement);
 }
