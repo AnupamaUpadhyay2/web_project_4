@@ -31,14 +31,16 @@ const photoGrid = document.querySelector(".photo-grid");
 const popupImage = imageModal.querySelector(".modal__image");
 const popupImageCaption = imageModal.querySelector(".modal__image-caption");
 
+let openedModal;
 
 function openModal(modal) {
-
   modal.classList.toggle("modal_open");
+  openedModal = modal
 }
 
 function closeModal(modal) {
   modal.classList.toggle("modal_open");
+  openedModal = null
 }
 
 function valueUpdate(event) {
@@ -67,7 +69,7 @@ function updatePhotoGrid(event) {
 addCardForm.addEventListener("submit", updatePhotoGrid);
 
 profileEditButton.addEventListener("click", () => {
-  
+
   nameInput.value = profileName.textContent;
   aboutMeInput.value = profileAbout.textContent;
 
@@ -150,7 +152,7 @@ function createCard(data) {
 }
 
 
-  function addCardToGrid(data) {
+function addCardToGrid(data) {
   const cardElement = createCard(data);
   photoGrid.prepend(cardElement);
 }
@@ -164,4 +166,30 @@ initialCards.forEach(card => {
 closeImageModal.addEventListener("click", () => {
   closeModal(imageModal);
 })
+
+const modals = Array.from(document.querySelectorAll(".modal"));
+const modalContainers = Array.from(document.querySelectorAll(".modal__container"));
+
+modals.forEach((modal, index) => {
+
+  modal.addEventListener("click", (evt) => {
+    console.log(evt.target)
+    if(evt.target == modal || evt.target == modalContainers[index]){
+      closeModal(modal)
+    }
+  })
+
+ 
+})
+
+
+const page = document.querySelector(".page");
+
+page.addEventListener("keydown", (evt) => {
+  
+  if (evt.key === "Escape" && openedModal) {
+    closeModal(openedModal)
+  }
+})
+
 

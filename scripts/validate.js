@@ -31,7 +31,6 @@ function toggleButton(button, config, inputs) {
       button.classList.remove(config.inactiveButtonClass);
     } else {
       button.disabled = true;
-      console.log(button);
       button.classList.add(config.inactiveButtonClass)
     }
 
