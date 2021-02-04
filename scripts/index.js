@@ -1,10 +1,14 @@
+import FormValidator from "./FormValidator.js";
+import Card from "./Card.js";
+import {imageModal, openModal, closeModal} from "./utils.js";
+
+
 //wrappers
 const page = document.querySelector(".page");
 const modals = Array.from(document.querySelectorAll(".modal"));
 const modalContainers = Array.from(document.querySelectorAll(".modal__container"));
 const editProfileModal = document.querySelector(".modal_type_edit-profile")
 const addCardModal = document.querySelector(".modal_type_add-card")
-const imageModal = document.querySelector(".modal_type_image")
 
 const editProfileForm = editProfileModal.querySelector(".form");
 const addCardForm = addCardModal.querySelector(".form");
@@ -28,31 +32,8 @@ const profileAbout = document.querySelector(".profile__about");
 const placeNameInput = document.querySelector(".form__input_type_place-title");
 const placeUrlInput = document.querySelector(".form__input_type_place-url");
 
-const cardTemplate = document.querySelector(".card-template").content.querySelector(".photo-grid__item");
+
 const photoGrid = document.querySelector(".photo-grid");
-
-const popupImage = imageModal.querySelector(".modal__image");
-const popupImageCaption = imageModal.querySelector(".modal__image-caption");
-
-let openedModal;
-
-function openModal(modal) {
-  modal.classList.toggle("modal_open");
-  openedModal = modal;
-  document.addEventListener("keydown", handleEscapeKey);
-}
-
-function closeModal(modal) {
-  modal.classList.toggle("modal_open");
-  openedModal = null;
-  document.removeEventListener("keydown", handleEscapeKey);
-}
-
-function handleEscapeKey(event){
-  if (event.key === "Escape") {
-    closeModal(openedModal);
-  }
-}
 
 function valueUpdate(event) {
   event.preventDefault();
@@ -80,8 +61,8 @@ function updatePhotoGrid(event) {
 
 
 function addCardToGrid(data) {
-  const cardElement = createCard(data);
-  photoGrid.prepend(cardElement);
+  const card = new Card (data, ".card-template");
+  photoGrid.prepend(card.getCard());
 }
 
 addCardForm.addEventListener("submit", updatePhotoGrid);
@@ -127,37 +108,17 @@ modals.forEach((modal, index) => {
   })
 })
 
-
-function createCard(data) {
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImage = cardElement.querySelector(".photo-grid__img");
-  const cardTitle = cardElement.querySelector(".photo-grid__place");
-  const cardLikeButton = cardElement.querySelector(".photo-grid__like-button");
-  const cardDeleteButton = cardElement.querySelector(".photo-grid__delete-button");
-
-  cardTitle.textContent = data.name;
-  cardImage.src = data.link;
-  cardImage.alt = data.name;
-
-  function toggleLikeButton(){
-    cardLikeButton.classList.toggle("photo-grid__like-button_liked");
-  }
-
-  cardLikeButton.addEventListener("click", toggleLikeButton);
-
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  })
-
-  cardImage.addEventListener("click", () => {
-
-    popupImage.src = data.link;
-    popupImageCaption.textContent = data.name;
-    popupImage.alt = data.name;
-
-    openModal(imageModal);
-  })
-
-  return cardElement;
+const setting = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__save",
+  inactiveButtonClass: "form__save_disabled",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__error_visible"
 }
+
+const addCardValidator = new FormValidator(setting, addCardForm);
+const editProfileValidator = new FormValidator(setting, editProfileForm)
+
+addCardValidator.enableValidation();
+editProfileValidator.enableValidation();

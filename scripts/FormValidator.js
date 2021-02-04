@@ -1,5 +1,3 @@
-import {editProfileForm, addCardForm} from "./index.js";
-
 class FormValidator {
   constructor(settings, form) {
     this._settings = settings;
@@ -9,14 +7,14 @@ class FormValidator {
   _showErrorMessage(errorMessage, input) {
     const error = document.querySelector(`#${input.id}-error`);
     error.textContent = errorMessage;
-  
+
     input.classList.add(this._settings.inputErrorClass);
   }
 
   _hideErrorMessage(input) {
     const error = document.querySelector(`#${input.id}-error`);
     error.textContent = "";
-  
+
     input.classList.remove(this._settings.inputErrorClass);
   }
 
@@ -25,46 +23,44 @@ class FormValidator {
       this._hideErrorMessage(input)
     } else {
       this._showErrorMessage(input.validationMessage, input)
-  
+
     }
   }
 
-  _toggleButton() {
+  _toggleButton(button, inputs) {
     const isValid = inputs.every((input) => {
       return input.validity.valid;
     })
-  
-      if (isValid) {
-        button.disabled = false;
-        button.classList.remove(this._settings.inactiveButtonClass);
-      } else {
-        button.disabled = true;
-        button.classList.add(this._settings.inactiveButtonClass)
-      }
+
+    if (isValid) {
+      button.disabled = false;
+      button.classList.remove(this._settings.inactiveButtonClass);
+    } else {
+      button.disabled = true;
+      button.classList.add(this._settings.inactiveButtonClass)
+    }
   }
 
   enableValidation() {
-    // const forms = Array.from(document.querySelectorAll(config.formSelector));
+ 
+    this._form.addEventListener("submit", ((evt) => {
+      evt.preventDefault();
+    }))
 
-    // forms.forEach((form) => {
-      this._form.addEventListener("submit", ((evt) => {
-        evt.preventDefault();
-      }))
-  
-      const inputs = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
-      const button = this._form.querySelector(this._settings.submitButtonSelector);
-  
-      this._toggleButton(button, this._settings, inputs);
-  
-      inputs.forEach((input) => {
-        input.addEventListener("input", () => {
-          this._checkInputValidity(input);
-  
-          // this._toggleButton(button, this._settings, inputs);
-        })
-  
+    const inputs = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
+    const button = this._form.querySelector(this._settings.submitButtonSelector);
+
+    this._toggleButton(button, inputs);
+
+    inputs.forEach((input) => {
+      input.addEventListener("input", () => {
+        this._checkInputValidity(input);
+
+        this._toggleButton(button, inputs);
       })
-    // })
+
+    })
+ 
   }
 
 
