@@ -8,12 +8,10 @@ class PopupWithForm extends Popup {
   }
 
   open(values) {
-    
     const inputs = [...this._form.querySelectorAll(".form__input")];
     inputs.forEach(input => {
       input.value = values[input.name]
     })
-
     super.open()
   }
 
@@ -34,7 +32,6 @@ class PopupWithForm extends Popup {
 
     super.setEventListeners();
   }
-
 }
 
 export default  PopupWithForm;

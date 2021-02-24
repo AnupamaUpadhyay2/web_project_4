@@ -56,12 +56,11 @@ function createCard(section, data) {
 const cardSection = new Section({items: initialCards, renderer: createCard}, ".photo-grid")
 cardSection.renderer()
 
-
 const addCardPopup = new PopupWithForm(".modal_type_add-card", (data) => createCard(cardSection, data));
 
 addCardPopup.setEventListeners();
 
-addCardButton.addEventListener("click", (button, settings) => {
+addCardButton.addEventListener("click", () => {
   addCardPopup.open({name: "", link: ""});
  
   submitCardButton.disabled = true 
