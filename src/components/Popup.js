@@ -21,10 +21,11 @@ class Popup {
   }
 
   setEventListeners() {
-    const closeButton = this._popup.querySelector('.modal__close-button');
 
-    closeButton.addEventListener('click', () => {
-      this.close();
+    this._popup.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal__close-button') || !e.target.closest('modal__container')) {
+        this.close();
+      }
     })
   }
 }
