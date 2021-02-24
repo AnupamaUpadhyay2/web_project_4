@@ -4,18 +4,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="pages/index.css" />
   <title>Around the U.S.</title>
 </head>
 
 <body class="page">
   <div class="page__container">
     <header class="header">
-      <img class="logo" src="images/logoWhite.svg" alt="Logo Around the USA" />
+      <img class="logo" id="image-logo" alt="Logo Around the USA" />
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__photo" src="images/imageprofilePhoto.png" alt="profile photot" />
+        <img class="profile__photo" id="profile-photo" alt="profile photo" />
         <div class="profile__info">
           <div class="profile__name-box">
             <h1 class="profile__name">Jacques Cousteau</h1>
@@ -24,7 +23,7 @@
           <p class="profile__about">Explorer</p>
         </div>
         <button class="profile__add-button" type="button">
-          <img class="profile__add-img" src="images/addIcon.svg" alt="add button" />
+          <img class="profile__add-img" id="add-image" alt="add button" />
         </button>
       </section>
 
@@ -42,7 +41,7 @@
           <input id="profile-name" type="text" name="name" class="form__input form__input_type_name" placeholder="Name"
             value="Jacques Cousteau" required minlength="2" maxlength="40" />
           <span id="profile-name-error" class="form__error"></span>
-          <input id="profile-text" type="text" name="about-me" class="form__input form__input_type_about-me" placeholder="About Me"
+          <input id="profile-text" type="text" name="job" class="form__input form__input_type_about-me" placeholder="About Me"
             value="Explorer" required minlength="2" maxlength="200" />
           <span id="profile-text-error" class="form__error"></span>
           <button class="form__save" type="submit">Save</button>
@@ -55,10 +54,10 @@
         <button class="modal__close-button" aria-label="Close" type="button"></button>
         <form class="form form_type_add-card" name="form__add-card" novalidate>
           <h3 class="form__title">New place</h3>
-          <input id="card-title" type="text" name="pace-title" class="form__input form__input_type_place-title" placeholder="Title"
+          <input id="card-title" type="text" name="name" class="form__input form__input_type_place-title" placeholder="Title"
             value="" required minlength="1" maxlength="30" />
           <span id="card-title-error" class="form__error"></span>
-          <input id="card-url" type="url" name="place-url" class="form__input form__input_type_place-url" placeholder="Image link"
+          <input id="card-url" type="url" name="link" class="form__input form__input_type_place-url" placeholder="Image link"
             value="" required />
           <span id="card-url-error" class="form__error"></span>
           <button class="form__save" type="submit">Create</button>
@@ -88,9 +87,6 @@
       </div>
     </div>
   </template>
-
-  <script src="./scripts/array.js"></script>
-  <script type="module" src="./scripts/index.js"></script>
 
 </body>
 

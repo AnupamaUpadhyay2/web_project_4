@@ -1,9 +1,9 @@
-import {imageModal, openModal, popupImage, popupImageCaption} from "./utils.js";
 class Card {
-  constructor({name, link}, cardTemplateSelector) {
+  constructor({name, link}, cardTemplateSelector, handleCardClick) {
     this._text = name;
     this._link = link;
     this._cardTemplateSelector = cardTemplateSelector;
+    this._handleCardClick = handleCardClick;
     this._setCard()
   }
 
@@ -13,23 +13,13 @@ class Card {
 
   _handleDeleteButton() {
     this._cardElement.remove();
+    this._cardElement = null;
   }
-
-  _handlePicturePreview() {
-    console.log('picture preview')
-    popupImage.src = this._link;
-    popupImageCaption.textContent = this._text;
-    popupImage.alt = this._text;
-
-    openModal(imageModal);
-  }
-
 
   _setEventListeners() {
-    console.log('set event listeners')
     this._cardLikeButton.addEventListener("click", e => this._toggleLikeButton());
     this._cardDeleteButton.addEventListener("click", e => this._handleDeleteButton());
-    this._cardImage.addEventListener("click", e => this._handlePicturePreview());
+    this._cardImage.addEventListener("click", e => this._handleCardClick());
   }
 
   getCard() {
@@ -49,8 +39,6 @@ class Card {
     cardTitle.textContent = this._text;
     this._cardImage.src = this._link;
     this._cardImage.alt = this._text;
-
-    console.log('before set event listeners')
 
     this._setEventListeners()
   }
