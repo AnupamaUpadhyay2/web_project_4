@@ -36,8 +36,7 @@ class FormValidator {
       button.disabled = false;
       button.classList.remove(this._settings.inactiveButtonClass);
     } else {
-      button.disabled = true;
-      button.classList.add(this._settings.inactiveButtonClass)
+      this.disableButton(button);
     }
   }
 
@@ -61,6 +60,11 @@ class FormValidator {
 
     })
  
+  }
+
+  disableButton(button) {
+    button.disabled = true;
+    button.classList.add(this._settings.inactiveButtonClass)
   }
 
 

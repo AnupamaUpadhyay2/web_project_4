@@ -60,11 +60,12 @@ const addCardPopup = new PopupWithForm(".modal_type_add-card", (data) => createC
 
 addCardPopup.setEventListeners();
 
-addCardButton.addEventListener("click", () => {
+addCardButton.addEventListener("click", (button) => {
   addCardPopup.open({name: "", link: ""});
+
+  const addDisableButton = new FormValidator(setting, addCardForm);
+  addDisableButton.disableButton(submitCardButton);
  
-  submitCardButton.disabled = true 
-  submitCardButton.classList.add("form__save_disabled"); 
 });
 
 const setting = {
